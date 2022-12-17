@@ -9,8 +9,9 @@ public class MemPerformer extends JFrame {
         super() ;
         setTitle( "Chill time" ) ;
         Panel p = new Panel();
-        setContentPane(p); ;
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setContentPane(p);
+        this.setSize(p.getWidth(), p.getHeight());
+        this.setLocationRelativeTo(null);
         setVisible(true) ;
     }
 
@@ -23,17 +24,14 @@ public class MemPerformer extends JFrame {
             if( image == null ) {
                 System.out.println( "Image is null" );
             }
+            int width = image.getWidth(this)/2;
+            int height = image.getHeight(this)/2;
+            this.setSize(width, height);
         }
         public void drawBackground(Graphics g) {
-            int w = getWidth() ;
-            int h = getHeight() ;
-            int width = image.getWidth( this ) ;
-            int height = image.getHeight( this ) ;
-            for( int i = 0 ; i < w ; i += width ) {
-                for( int j = 0 ; j < h ; j += height ) {
-                    g.drawImage(image, i , j , this ) ;
-                }
-            }
+            int width = this.getWidth();
+            int height = this.getHeight();
+            g.drawImage(image, 0, 0, width, height, this);
         }
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
