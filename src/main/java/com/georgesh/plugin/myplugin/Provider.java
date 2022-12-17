@@ -1,5 +1,7 @@
 package com.georgesh.plugin.myplugin;
 
+import jnr.a64asm.Mem;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Provider {
+    MemPerformer performer;
     private List<BufferedImage> images = new ArrayList<>();
     public Provider(){
         getMemesFromDirectory();
@@ -20,7 +23,13 @@ public class Provider {
     }
 
     public void display(){
-        MemPerformer.main();
+        if (performer == null){
+            performer = new MemPerformer();
+        }
+        else {
+            performer.dispose();
+            performer = new MemPerformer();
+        }
     }
 
     private void getMemesFromDirectory(){

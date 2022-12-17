@@ -6,10 +6,10 @@ import org.jetbrains.annotations.NotNull;
 
 
 public class ActionPerformer extends AnAction {
+    Provider provider = new Provider();
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        Provider provider = new Provider();
         provider.display();
     }
 }
