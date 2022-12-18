@@ -3,9 +3,10 @@ package com.georgesh.plugin.myplugin;
 import javax.swing.*;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class MemPerformer extends JFrame {
-    public MemPerformer() {
+    public MemPerformer() throws IOException {
         super() ;
         setTitle( "Chill time" ) ;
         Panel p = new Panel();
@@ -17,7 +18,7 @@ public class MemPerformer extends JFrame {
 
     public static class Panel extends JPanel {
         private final Image image;
-        public Panel() {
+        public Panel() throws IOException {
             setLayout(new BorderLayout()) ;
             Provider provider = new Provider();
             image = provider.getRandomMeme();
@@ -37,11 +38,5 @@ public class MemPerformer extends JFrame {
             super.paintComponent(graphics);
             drawBackground(graphics);
         }
-    }
-
-
-
-    public static void main() {
-        new MemPerformer();
     }
 }

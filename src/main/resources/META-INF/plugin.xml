@@ -29,5 +29,10 @@
                 description="Show funny mem">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl H"/>
         </action>
+        <action id="com.georgesh.plugin.myplugin.SetCustomMemFolderAction"
+                class="com.georgesh.plugin.myplugin.SetCustomMemFolderAction" text="Select folder"
+                description="Allows to choose custom folder with user memes">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt F"/>
+        </action>
     </actions>
 </idea-plugin>
